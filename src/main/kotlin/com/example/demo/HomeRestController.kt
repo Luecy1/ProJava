@@ -30,4 +30,9 @@ class HomeRestController {
 
         return "タスクを追加しました"
     }
+
+    @GetMapping("restlist")
+    fun listItems(): String {
+        return taskItems.joinToString(", ") { it.toString() }
+    }
 }
