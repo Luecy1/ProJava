@@ -1,10 +1,10 @@
 package com.example.demo
 
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import java.time.LocalDate
 import java.util.*
 
 @RestController
@@ -13,12 +13,9 @@ class HomeRestController {
     private val taskItems = mutableListOf<TaskItem>()
 
     @RequestMapping("/resthello")
-    fun hello(): String {
-        return """
-            Hello.
-            It works!
-            現在時刻は${LocalDate.now()}
-        """.trimIndent()
+    fun hello(model: Model): String {
+//        model.addAttribute("time", LocalDateTime.now())
+        return "hello"
     }
 
     @GetMapping("/restadd")
